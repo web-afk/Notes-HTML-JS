@@ -1,4 +1,5 @@
 import { notesData, localName } from "./localStorage.js"
+import { getNotes, updateNotes } from "./misc.js"
 
 const __init__ = () => {
 }
