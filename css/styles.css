@@ -1,0 +1,55 @@
+/*fonts import*/
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=Cabin:wght@400..700&family=Victor+Mono:wght@100..700&display=swap');
+
+:root{
+    --background-main-gradient: linear-gradient(-45deg, #000080, #0818A8	, #0047AB, #0F52BA, #4169E1);
+    --default-font: "Cabin", sans-serif;
+    --default-color: #F0FFFF;
+}
+
+*,
+*:after,
+*:before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background-main-gradient);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    font-family: var(--default-font);
+    color: var(--default-color);
+}
+
+@keyframe gradient{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.header{
+    width: 50%;
+    height: 100px;
+    background: linear-gradient(to right, #1B1212, #301934);
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
