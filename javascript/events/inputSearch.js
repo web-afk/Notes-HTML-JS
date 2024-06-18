@@ -5,6 +5,7 @@ import { handleClick } from "./optionClick.js"
 export const handlingInputSearchUp = event => {
 
     const parent = event.target.parentElement
+    const valueSearched = event.target.value
 
     const inputList = document.createElement("article")
     inputList.classList.add("input-list")
@@ -34,6 +35,7 @@ export const handlingInputSearchUp = event => {
     optionFinished.classList.add("show-opt")
     optionCompleted.classList.add("show-opt")
     optionStatus.classList.add("show-opt")
+
     render(inputList, optionID)
     render(inputList, optionTitle)
     render(inputList, optionContent)
@@ -47,7 +49,24 @@ export const handlingInputSearchUp = event => {
     render(inputList, optionCompleted)
     render(inputList, optionStatus)
 
-    render(parent, inputList)
+    render(parent, inputList);
+
+    [...inputList.children].forEach(option => {
+        const val = option.textContent.substring(0, valueSearched.length)
+        if(val === valueSearched){
+            const beginSpan = fastElement("span",val)
+            beginSpan.classList.add("highlight-opt")
+            const endSpan = fastElement("span",option.textContent.substring(valueSearched.length))
+            option.textContent = ""
+            option.appendChild(beginSpan)
+            option.appendChild(endSpan)
+            option.classList.add("show-opt")
+            option.classList.remove("hide-opt")
+        }else{
+            option.classList.add("hide-opt")
+            option.classList.remove("show-opt")
+        }
+    })
 }
 
 export const handlingInputSearchDown = event => {

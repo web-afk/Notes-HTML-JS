@@ -138,16 +138,6 @@ body{
     color: #a0a0a0;
 }
 
-.hide-opt{
-    display: none;
-}
-
-.highlight-opt{
-    font-weight: bolder;
-    font-size: 1.22rem;
-    color: #000000;
-}
-
 .input-list{
     width: 400px;
     position: absolute;
@@ -161,9 +151,23 @@ body{
     border-radius: 0 0 5px 5px;
 }
 
+.hide-opt{
+    display: none;
+}
+
+.highlight-opt{
+    font-weight: bolder;
+    font-size: 1.22rem;
+    color: #000000;
+}
+
+.show-opt:hover .highlight-opt{
+    color: #ffffff;
+}
+
 .show-opt{
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #1e0041;
     font-family: var(--default-font);
     padding: 10px 0 10px 10px;
