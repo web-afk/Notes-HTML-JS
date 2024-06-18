@@ -6,8 +6,8 @@ const $$ = selector => {
     return document.querySelectorAll(selector)
 }
 
-const render = () => {
-
+const render = (parent, child) => {
+    parent.appendChild(child)
 }
 
 export {$, $$, render}

@@ -6,4 +6,10 @@ const getNotes = (localName) => {
     return JSON.parse(localStorage.getItem(localName))
 }
 
-export {updateNotes,getNotes}
+const fastElement = (element, text) => {
+    const newElement = document.createElement(element)
+    newElement.textContent = text
+    return newElement
+}
+
+export {updateNotes,getNotes,fastElement}
