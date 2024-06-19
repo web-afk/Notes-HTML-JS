@@ -1,6 +1,6 @@
-import { render, $ } from "../dom.js"
+import { render, $, $$} from "../dom.js"
 import { fastElement } from "../misc.js"
-import { handleClick } from "./optionClick.js"
+import { handleClick, handleMouseIn } from "./optionClick.js"
 
 export const handlingInputSearchUp = event => {
 
@@ -10,6 +10,7 @@ export const handlingInputSearchUp = event => {
     const inputList = document.createElement("article")
     inputList.classList.add("input-list")
     inputList.addEventListener("click", handleClick, {once: true})
+    inputList.addEventListener("mouseover",handleMouseIn)
 
     const optionID = fastElement("span", "id:")
     const optionTitle = fastElement("span", "title:")
@@ -50,8 +51,8 @@ export const handlingInputSearchUp = event => {
     render(inputList, optionStatus)
 
     render(parent, inputList);
-
-    [...inputList.children].forEach(option => {
+    
+    [...$$(".input-list > span")].forEach(option => {
         const val = option.textContent.substring(0, valueSearched.length)
         if(val === valueSearched){
             const beginSpan = fastElement("span",val)
@@ -62,7 +63,9 @@ export const handlingInputSearchUp = event => {
             option.appendChild(endSpan)
             option.classList.add("show-opt")
             option.classList.remove("hide-opt")
-        }else{
+        }
+        
+        if(val !== valueSearched || val === option.textContent){
             option.classList.add("hide-opt")
             option.classList.remove("show-opt")
         }
@@ -81,9 +84,9 @@ export const handlingInputSearchDown = event => {
 
 export const handlingInputSearchChange = event => {
     const input = event.target
-    const inputList = $(".input-list")
-    const valueSearched = input.value;
-    [...inputList.children].forEach(option => {
+    const inputList = [...$$(".input-list > span")]
+    const valueSearched = input.value
+    inputList.forEach(option => {
         const val = option.textContent.substring(0, valueSearched.length)
         if(val === valueSearched){
             const beginSpan = fastElement("span",val)
@@ -94,9 +97,51 @@ export const handlingInputSearchChange = event => {
             option.appendChild(endSpan)
             option.classList.add("show-opt")
             option.classList.remove("hide-opt")
-        }else{
+        }else if(val !== valueSearched || val === option.textContent){
             option.classList.add("hide-opt")
             option.classList.remove("show-opt")
         }
     })
+}
+
+export const handlingInputKeyPress = event => {
+    const code = event.keyCode
+    const input = $(".search-input")
+    const options = $(".input-list")
+    const activeOption = [...$$(".show-opt")]
+    if(activeOption.length === 0) return
+    const focused = activeOption.map((opt, index) => [opt.classList.contains("focused"), index]).filter(opt => opt.at(0)).pop()
+    input.setSelectionRange(input.value.length, input.value.length)
+    if(code === 40){
+        if(focused === undefined){
+            activeOption[0].classList.add("focused")
+            activeOption[0].scrollIntoView(false)
+        }else{
+            const next = activeOption[focused.at(-1) + 1]
+            if(next === undefined) return
+            activeOption[focused.at(-1)].classList.remove("focused")
+            next.classList.add("focused")
+            next.scrollIntoView(false)
+        }
+    }
+    if(code === 38){
+        if(focused === undefined){
+            activeOption[activeOption.length - 1].classList.add("focused")
+            activeOption[activeOption.length - 1].scrollIntoView(false)
+        }else{
+            const prev = activeOption[focused.at(-1) - 1]
+            if(prev === undefined) return
+            activeOption[focused.at(-1)].classList.remove("focused")
+            prev.classList.add("focused")
+            prev.scrollIntoView(false)
+        }
+    }
+    if(code === 9){
+        event.preventDefault()
+        if(focused === undefined) return
+        input.value = activeOption[focused.at(-1)].textContent
+        input.setSelectionRange(input.value.length, input.value.length)
+        const parent = input.parentElement
+        parent.removeChild(options)       
+    }
 }

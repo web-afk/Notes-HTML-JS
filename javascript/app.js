@@ -1,10 +1,11 @@
-import { notesData, localName } from "./localStorage.js"
+import { notesData, localName } from "./DB/localStorage.js"
 import { getNotes, updateNotes } from "./misc.js"
 import { $, render} from "./dom.js"
 
 import { handlingInputSearchUp, 
         handlingInputSearchDown,
-        handlingInputSearchChange } from "./events/inputSearch.js"
+        handlingInputSearchChange,
+        handlingInputKeyPress} from "./events/inputSearch.js"
 
 const __init__ = () => {
     //const section_links = $(".section")
@@ -13,6 +14,7 @@ const __init__ = () => {
     inputSearchNotes.addEventListener("focus", handlingInputSearchUp)
     inputSearchNotes.addEventListener("focusout", handlingInputSearchDown)
     inputSearchNotes.addEventListener("input", handlingInputSearchChange)
+    inputSearchNotes.addEventListener("keydown", handlingInputKeyPress)
 }
 
 document.addEventListener("DOMContentLoaded", __init__ )
