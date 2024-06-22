@@ -283,13 +283,236 @@ body{
     padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    gap: 40px;
 }
 
 .note{
-    width: 300px;
-    padding: 10px;
-    background: linear-gradient(-45deg,#140626,#240d41,#160130);
+    width: 400px;
+    min-height: 200px;
     border-radius: 10px;
     overflow:hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    transition: all 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.note-green{
+    background-color: #2b5656;
+    color: #c7caca;
+    border: 1px solid #003838;
+}
+
+.note-header-green{
+    background-color: #014040;
+    color: #c7caca;
+}
+
+.note-red{
+    background-color: #fa5d6a;
+    color: #ffeaea;
+    border: 1px solid #ff0000;
+}
+
+.note-pink{
+    background-color: #f841b8;
+    border: 1px solid #e20093;
+    color: #fee2f4;
+}
+
+.note-purple{
+    background-color: #533472;
+    color: #cb9afc;
+    border: 1px solid #381c54;
+}
+
+.note-header-purple{
+    background-color: #471A73;
+    color: #cb9afc;
+}
+
+.note-blue{
+    background-color: #2e1871;
+    border: 1px solid #14004e;
+    color: #b8b8b8;
+}
+
+.note-header-blue{
+    background-color: #1A0E3E;
+    color: #b8b8b8;
+}
+
+.note-header-pink{
+    background-color: #F2059F;
+}
+
+.note-header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.note-header-red{
+    background-color: #f32e3e;
+}
+
+.note-orange{
+    background-color: #e08c43;
+    border: 1px solid #9e4a00;
+    color: #ffe9d6;
+}
+
+.note-header-orange{
+    background-color: #e2822e;
+    color: #ffe9d6;
+}
+
+.note-orange:hover {
+    background-color: #e46b01;
+    color: #fff;
+}
+
+.note-orange:hover .note-header-orange{
+    color: #fff;
+    background-color: #cd6000;
+}
+
+.note-title{
+    padding-left: 10px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.note-body{
+    padding-left: 10px;   
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.note-content{
+    font-size: 1.3rem;   
+}
+
+.note-options{
+    border: #000000 1px solid;
+    border-radius: 3px;
+    width: fit-content;
+    height: fit-content;
+    padding: 3px 5px;
+    font-size: 0.9rem;
+    background-color: #140626;
+    color: #bf8eff;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.note-options:hover{
+    background-color: #000000;
+    color: #cfbce7;
+}
+
+.note-options:active{
+    transform: scale(0.99);
+}
+
+.note-footer{
+    padding-right:10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:right;
+    font-size: 0.8rem;
+}
+
+.note-red:hover .note-header-red{
+    color: #fff;
+    background-color: #fc1f32;
+}
+
+.note-red:hover .note-header-pink{
+    background-color: #f1009d;
+}
+
+.note-blue:hover{
+    color: #fff;
+    background-color: #1e046c;
+}
+
+.note-blue:hover .note-header-blue{
+    color: #fff;
+    background-color: #0d0036;
+}
+
+.note-pink:hover{
+    color: #fff;
+    background-color: #f822ad;
+}
+
+.note-purple:hover{
+    color: #fff;
+    background-color: #3d1b60;
+}
+
+.note-purple:hover .note-header-purple{
+    color: #fff;
+    background-color: #2f0b54;
+}
+
+.note:hover{
+    transform: scale(1.02);
+    transform: rotate(2deg);
+}
+
+.note-red:hover{
+    color: #fff;
+    background-color: #ff3f4f;
+}
+
+.note-green:hover{
+    color: #fff;
+    background-color: #114747;
+}
+
+.note-green:hover .note-header-green{
+    color: #fff;
+    background-color: #002c2c;
+}
+
+.note:active, note:focus{
+    transform: scale(0.98);
+    transform: rotate(-1deg);
+    border: #000000 2px solid;
+}
+
+.add-note{
+    background-color: #090524;
+    font-weight: bolder;
+    font-size: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #6047ff;
+    border: 2px solid #6047ff;
+    transition: all 0.5s;
+    user-select: none;
+}
+
+.add-note:hover{
+    background-color: #040019;
+    color: #b7acff;
+    border: 2px solid #6047ff;
+}
+
+.add-note:active{
+    transform: scale(0.99);
 }
