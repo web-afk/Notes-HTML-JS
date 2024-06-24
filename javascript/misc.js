@@ -8,7 +8,6 @@ export const getNotes = (localName) => {
 
 export const fastElement = (element, text) => {
     const newElement = document.createElement(element)
-    newElement.classList.add(className)
     newElement.textContent = text
     return newElement
 }

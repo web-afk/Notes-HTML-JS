@@ -24,7 +24,7 @@
 
     <article class="dashboard">
         <section class="actions">
-            <input type="text" placeholder="Custom Search On" class="search-input" spellcheck="false">
+            <input type="text" placeholder="Custom Search On" class="search-input" spellcheck="false" id="CustomSearch">
 
             <button class="search-btn btn">Search</button>
             <button class="add-btn btn">Add Note</button>
@@ -32,7 +32,7 @@
     
         <section class="notes">
             <article class="message">
-                <p class="message-text">No Notes Found <span class="amount-found">(5)</span></p>
+                <p class="message-text"><span class="amount-found"></span></p>
             </article>
             <article class="full-notes">
                 <section class="add-note">
@@ -40,6 +40,10 @@
                 </section>
             </article>
         </section>
+    </article>
+
+    <article class="message-to-cx" id="alert-message">
+        <p class="message-text-to-cx">Text of the message</p>
     </article>
 
 </body>

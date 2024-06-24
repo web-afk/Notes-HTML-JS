@@ -1,6 +1,9 @@
 import { render, $, $$} from "../dom.js"
 import { fastElement } from "../misc.js"
 import { handleClick, handleMouseIn } from "./optionClick.js"
+import { setFullNotes } from "../DOM/fullNotes.js"
+import { getNotes } from "../misc.js"
+import { localName } from "../DB/localStorage.js"
 
 export const handlingInputSearchUp = event => {
 
@@ -86,6 +89,7 @@ export const handlingInputSearchChange = event => {
     const input = event.target
     const inputList = [...$$(".input-list > span")]
     const valueSearched = input.value
+    if(valueSearched.length === 0) setFullNotes("Total Notes Found: ", getNotes(localName))
     inputList.forEach(option => {
         const val = option.textContent.substring(0, valueSearched.length)
         if(val === valueSearched){

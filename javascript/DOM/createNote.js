@@ -1,7 +1,7 @@
 import { fastClassText, fastClass } from "../misc.js"
 import { render } from "../dom.js"
 
-const colors = ["red", "purple", "green", "blue", "pink", "orange"]
+const colors = ["red", "purple", "green", "blue", "pink", "orange", "yellow"]
 
 export const createNote = (id, title, content, author) => {
 
