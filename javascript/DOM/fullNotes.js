@@ -17,7 +17,7 @@ export const setFullNotes = (messageTittleText, notes, messageTittleTextEmpty = 
     }
     render(messageTittle, messageCount)
     for(const note of notes){
-        const noteElement = createNote(note.id, note.title, note.content, note.author)
+        const noteElement = createNote(note.id, note.title, note.content, note.author, note)
         render(notesContainer, noteElement)
     }
     render(notesContainer, addNote)

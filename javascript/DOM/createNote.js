@@ -3,10 +3,11 @@ import { render } from "../dom.js"
 
 const colors = ["red", "purple", "green", "blue", "pink", "orange", "yellow"]
 
-export const createNote = (id, title, content, author) => {
+export const createNote = (id, title, content, author, noteInfo) => {
 
-    const colorID = Math.floor( Math.random() * colors.length )
-    const currentColor = colors[colorID]
+    //const colorID = Math.floor( Math.random() * colors.length )
+    const defaultColor = colors[0]
+    const currentColor = noteInfo.color || defaultColor
 
     const note = fastClass("section", "note")
     note.id = `note:${id}`

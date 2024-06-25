@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <script type="module" src="javascript/app.js"></script>
+    <script src="https://kit.fontawesome.com/4ed203a082.js" crossorigin="anonymous"></script>
     <title>Notes App</title>
 </head>
 <body>
@@ -45,8 +46,35 @@
         </section>
     </article>
 
-    <article class="message-to-cx" id="alert-message">
-        <p class="message-text-to-cx">Text of the message</p>
+    <article class="message-stack">
+    </article>
+
+    <article class="fast-form-layer not-visible">
+        <article class="fast-form-container">
+            <form action="" method="post" class="fast-form" id="fast-form">
+
+                <span class="close-fast-form">✕</span>
+
+                <p class="name-form">Add Fast Note</p>
+
+                <label for="title" class="fast-form-label">
+                    <p class="fast-label-info">Title</p>
+                    <input class="fast-form-input" type="text" name="title" id="title" placeholder="Add a title to your note" minlength="1" required>
+                </label>
+
+                <label for="content" class="fast-form-label">
+                    <p class="fast-label-info">Content</p>
+                    <textarea class="fast-form-input textarea-input" name="content" id="content" cols="30" rows="10" placeholder="Add a content to your note" required></textarea>
+                </label>
+                
+                <label for="author" class="fast-form-label">
+                    <p class="fast-label-info">Author</p>
+                    <input class="fast-form-input" type="email" name="author" id="author" placeholder="Add an author to your note" required>
+                </label>
+    
+                <button  class="btn btn-submit-fast-form" type="submit" for="fast-form">Submit</button>
+            </form>
+        </article>
     </article>
 
 </body>

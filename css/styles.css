@@ -572,29 +572,287 @@ body{
     transform: scale(0.99);
 }
 
-.message-to-cx{
-    width: 300px;
-    height: 70px;
-    border: 1px solid #000;
-    border-radius: 10px;
+.message-stack{
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    right: 0px;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 335px;
+    width: 335px;
+    padding: 20px 15px 20px 15px;
+    z-index: 3;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    row-gap: 10px;
+    visibility: hidden;
+}
+
+.message-to-cx{
+    width: 100%;
+    min-height: 70px;
+    border: 1px solid #120905;
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
     align-items: center;
     padding-left: 20px;
-    background-color: #F20519;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    user-select: none;
+    opacity: 0.8;
+    transition: all 0.5s;
+    position: relative;
+    visibility: visible;
 }
 
 .message-text-to-cx{
     width: 100%;
     font-size: 1.3rem;
-    color: #000;
+    color: #D7CCC9;
     font-weight: 900;
+    padding-right: 30px;
 }
 
-.hidden{
-    display: none;
+#alert-message{
+    background-color: #B9132A;
+}
+
+#info-message{
+    background-color: #090673;
+}
+
+.close{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-weight: 900;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.message-to-cx:hover{
+    opacity: 1;
+}
+
+.message-to-cx:active, .message-to-cx:focus{
+    transform: scale(1.01);
+    border: 2px solid #000;
+}
+
+.popUp-message{
+    animation-name: popUp;
+    animation-duration: 0.5s;
+}
+
+.popOut-message{
+    animation-name: popOut;
+    animation-duration: 0.5s;
+}
+
+.fa-solid{
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.fast-form-layer{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 30px 30px 30px;
+}
+
+.fast-form-container{
+    min-height: 80%;
+    flex-grow: 1;
+    max-width: 700px;
+    background-color: #5204BF;
+    color: #c69dff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+}
+
+.fast-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.name-form{
+    font-size: 1.7rem;
+    font-weight: bolder;
+    text-align: center;
+    color: #e1cbff;
+    transition: all 0.5s;
+    user-select: none;
+}
+
+.fast-form-label{
+    display: flex;
+    flex-direction: column;
+}
+
+.fast-form-label:hover,
+.fast-form-label:active,
+.fast-form-label:focus{
+    color: #fff;
+}
+
+.fast-label-info{
+    font-size: 1.3rem;
+    transition: all 0.5s;
+}
+
+.fast-form-input{
+    min-height: 50px;
+    background-color: transparent;
+    border: 2px dashed #2f036d;
+    border-radius: 3px;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.textarea-input{
+    padding-top: 10px;
+}
+
+.fast-form-input::placeholder{
+    font-size: 1.1rem;
+    color: #b5b5b5;
+    transition: all 0.5s;
+}
+
+.fast-form-input:hover::placeholder,
+.fast-form-input:hover{
+    color: #d3d3d3;
+    border-color: #1a013d;
+}
+
+.fast-form-input:focus, textarea:focus{
+    outline: none;
+}
+
+.close-fast-form{
+    position: absolute;
+    right: 0px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    user-select: none;
+}
+
+.close-fast-form:hover{
+    font-weight: 900;
+    color: #fff;
+}
+
+.close-fast-form:active{
+    transform: scale(0.95);
+}
+
+.name-form:hover{
+    color:#fff;
+}
+
+.btn-submit-fast-form{
+    width: 100%;
+    color: #c9a2ff;
+    background-color: #27015d;
+    transition: all 0.5s;
+}
+
+.btn-submit-fast-form:hover{
+    color: #fff;
+    background-color: #1e0049;
+}
+
+.btn-submit-fast-form:focus{
+    border: outset 1px #fff;
+}
+
+.slide-down-fast-form{
+    animation-name: slideToBottom;
+    animation-duration: 1s;
+}
+
+.slide-up-fast-form{
+    animation-name: slideFromBottom;
+    animation-duration: 1s;
+}
+
+.add-opacity-layer-fast-form{
+    animation-name: addOpacity;
+    animation-duration: 1s;
+}
+
+.remove-opacity-layer-fast-form{
+    animation-name: removeOpacity;
+    animation-duration: 1s;
+}
+
+.not-visible{
+    visibility: hidden;
+}
+
+@keyframes removeOpacity{
+    0%{
+        background-color: rgba(0,0,0,0.5);
+    }
+    100%{
+        background-color: rgba(0,0,0,0);
+    }
+}
+
+@keyframes addOpacity{
+    0%{
+        background-color: rgba(0,0,0,0);
+    }
+    100%{
+        background-color: rgba(0,0,0,0.5);
+    }
+}
+
+@keyframes slideFromBottom{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideToBottom{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+
+@keyframes popUp{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes popOut{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
 }
 
 @media screen and (max-width: 1157px){
