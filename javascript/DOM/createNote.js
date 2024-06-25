@@ -21,10 +21,10 @@ export const createNote = (id, title, content, author) => {
     const noteButton = fastClass("button","note-options")
     const noteSymbol = fastClassText("span", "note-symbol", "Full Note Information \u{2605}")
     render(noteButton, noteSymbol)
-    render(noteBody, noteButton)
     const noteContent = fastClassText("p", "note-content", content)
     render(note, noteBody)
     render(noteBody, noteContent)
+    render(noteBody, noteButton)
 
     const noteFooter = fastClass("footer", "note-footer")
     const noteAuthor = fastClassText("span", "note-author", `Author: ${author}`)

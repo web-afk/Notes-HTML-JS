@@ -8,6 +8,7 @@ export const handlingSearchClick = event => {
 
     if(searchInput.value.length === 0){
         setFullNotes("Total Notes Found: ", getNotes(localName))
+        return
     }
 
     if(searchInput.id === "CustomSearch"){

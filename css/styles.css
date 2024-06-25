@@ -112,6 +112,15 @@ body{
     align-items: center;
     gap: 30px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    flex-wrap: wrap;
+}
+
+.dashboard-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .actions{
@@ -222,6 +231,7 @@ body{
     transition: background 0.5s;
     cursor: pointer;
     display: block;
+    flex-grow: 1;
 }
 
 .btn:hover{
@@ -257,6 +267,29 @@ body{
     color: #642e5b;
 }
 
+.add-f-btn{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    justify-items: center;
+    align-items: center;
+    min-width: 200px;
+    background-color: #8C451C;
+    color: #facfb7;
+    cursor: pointer;
+}
+
+.add-f-btn:hover, .add-f-btn:focus{
+    background-color: #853100;
+    color: #fbeee7;
+
+}
+
+.light{
+    color: #ffee00;
+    font-size: 1.7rem;
+    -webkit-text-stroke: 1px #000;
+}
+
 .notes{
     width: 100%;
     padding: 0 20px;
@@ -284,7 +317,7 @@ body{
     padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
-    /*justify-content: space-between;*/
+    justify-content: space-between;
     gap: 40px;
 }
 
@@ -299,6 +332,7 @@ body{
     padding-bottom: 10px;
     transition: all 0.5s;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    flex-grow: 1;
 }
 
 .note-green{
@@ -557,4 +591,44 @@ body{
     font-size: 1.3rem;
     color: #000;
     font-weight: 900;
+}
+
+.hidden{
+    display: none;
+}
+
+@media screen and (max-width: 1157px){
+    .search-input{
+        min-width: 100%;
+    }
+
+    .dashboard-buttons{
+        min-width: 100%;
+        justify-content: space-between;
+    }
+
+    .notes{
+        margin-top: 60px;
+    }
+}
+
+@media screen and (max-width: 636px){
+    .notes{
+        margin-top: 100px;
+    }   
+}
+
+@media screen and (max-width: 516px){
+    .notes{
+        margin-top: 180px;
+    }
+
+    .tittle{
+        min-width: 160px;
+    }
+
+    .slogan{
+        text-align: center;
+        font-size: 0.9rem;
+    }
 }
