@@ -1,5 +1,5 @@
 import { showFastForm } from "../DOM/fastFormLogic.js"
 
-export const handlingFastNoteForm = event => {
+export const handlingFastNoteForm = () => {
     showFastForm()
 }

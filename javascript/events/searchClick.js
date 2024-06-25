@@ -5,7 +5,8 @@ import { $ } from "../dom.js"
 import { createAlert } from "../DOM/createAlert.js"
 import { createInfo } from "../DOM/createInfo.js"
 
-let counter = 0
+let counterID = 0
+let counterColor = 0
 
 export const handlingSearchClick = event => {
     const searchInput = $(".search-input")
@@ -33,29 +34,48 @@ const handleCustomSearch = search => {
             searchResult = notes.find(note => note.id == searchValue)
             if(searchResult === undefined) searchResult = []
             else searchResult = [searchResult]
-            setFullNotes("Result Found With ID: ", searchResult, "No Note(s) Found With ID:")
+            setFullNotes(`Result Found With ID: "#${searchValue}"`, searchResult, `No Note(s) Found With ID: "#${searchValue}"`)
         }else{
             createAlert("Invalid Search ID Value")
-            if(counter === 0){
+            if(counterID === 0){
                 createInfo(`Please enter a number or a text "even" or "odd"`)
-                counter++
+                counterID++
             }
         }     
     }
 
     else if(searchKey === "title"){
         searchResult = notes.filter(note => lookSimilarString(note.title, searchValue))
-        setFullNotes(`Result(s) Found With Title "${searchValue}": `, searchResult, "No Note(s) Found With Title:")
+        setFullNotes(`Result(s) Found With Title "${searchValue}": `, searchResult, `No Note(s) Found With Title: ${searchValue}`)
     }
 
     else if(searchKey === "content"){
         searchResult = notes.filter(note => lookSimilarString(note.content, searchValue))
-        setFullNotes(`Result(s) Found With Content "${searchValue}": `, searchResult, "No Note(s) Found With Content:")
+        setFullNotes(`Result(s) Found With Content "${searchValue}": `, searchResult, `No Note(s) Found With Content: ${searchValue}`)
     }
 
     else if(searchKey === "author"){
         searchResult = notes.filter(note => lookSimilarString(note.author, searchValue))
-        setFullNotes(`Result(s) Found With Author "${searchValue}": `, searchResult, "No Note(s) Found With Author:")
+        setFullNotes(`Result(s) Found With Author "${searchValue}": `, searchResult, `No Note(s) Found With Author: ${searchValue}`)
+    }
+
+    else if(searchKey === "color"){
+        const colors = ["red", "purple", "green", "blue", "pink", "orange", "yellow", "blank"]
+        if(colors.includes(searchValue)){
+            if(searchValue === "blank"){
+                searchResult = notes.filter(note => note.color === undefined)
+            }else{
+                searchResult = notes.filter(note => note.color === searchValue)
+            }
+            setFullNotes(`Result(s) Found With Color "${searchValue}": `, searchResult, `No Note(s) Found With Color: ${searchValue}`)
+        }
+        else{
+            createAlert("Please enter a valid color")
+            if(counterColor === 0){
+                createInfo("Valid Colors: red, purple, green, blue, pink, orange, yellow, blank")
+                counterColor++
+            }
+        }
     }
 
     else {

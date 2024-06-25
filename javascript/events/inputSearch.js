@@ -9,6 +9,7 @@ export const handlingInputSearchUp = event => {
 
     const parent = event.target.parentElement
     const valueSearched = event.target.value
+    const width = event.target.offsetWidth
 
     const inputList = document.createElement("article")
     inputList.classList.add("input-list")
@@ -27,6 +28,7 @@ export const handlingInputSearchUp = event => {
     const optionFinished = fastElement("span", "finished:")
     const optionCompleted = fastElement("span", "completed:")
     const optionStatus = fastElement("span", "status:")
+    const optionColor = fastElement("span", "color:")
     optionID.classList.add("show-opt")
     optionTitle.classList.add("show-opt")
     optionContent.classList.add("show-opt")
@@ -52,7 +54,9 @@ export const handlingInputSearchUp = event => {
     render(inputList, optionFinished)
     render(inputList, optionCompleted)
     render(inputList, optionStatus)
+    render(inputList, optionColor)
 
+    inputList.style.width = `${width}px`
     render(parent, inputList);
     
     [...$$(".input-list > span")].forEach(option => {

@@ -27,6 +27,8 @@ const __init__ = () => {
     //const notes = getNotes(localName)
     setFullNotes("Total Notes Found: ", getNotes(localName))
     createInfo("You are logged as guest")
+    createInfo("You can only filter by id, title, content, author and color")
+    createInfo("More filters will be available soon")
 }
 
 document.addEventListener("DOMContentLoaded", __init__ )

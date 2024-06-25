@@ -260,6 +260,11 @@ body{
 .add-btn{
     background-color: #d7abd0;
     color: #98518a;
+    display: grid;
+    min-width: 200px;
+    grid-template-columns: 4fr 1fr;
+    justify-content: center;
+    align-items: center;
 }
 
 .add-btn:focus, .add-btn:hover{
@@ -304,6 +309,7 @@ body{
     max-height: 35px;
     display: flex;
     align-items: center;
+    column-gap: 5px;
 }
 
 .message-text{
@@ -610,7 +616,7 @@ body{
     font-size: 1.3rem;
     color: #D7CCC9;
     font-weight: 900;
-    padding-right: 30px;
+    padding: 10px 30px 10px 10px;
 }
 
 #alert-message{
@@ -666,7 +672,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 90px 30px 30px 30px;
+    padding: 90px 30px 50px 30px;
 }
 
 .fast-form-container{
@@ -880,7 +886,7 @@ body{
 @media screen and (max-width: 636px){
     .notes{
         margin-top: 100px;
-    }   
+    } 
 }
 
 @media screen and (max-width: 516px){
@@ -895,5 +901,9 @@ body{
     .slogan{
         text-align: center;
         font-size: 0.9rem;
+    }
+
+    .textarea-input{
+        height: 60px;
     }
 }
