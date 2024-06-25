@@ -1,7 +1,7 @@
 import { fastForm } from "../DOM/fastForm.js"
 import { hideFastForm } from "../DOM/fastFormLogic.js"
 
-export const  HandlingCloseFastForm = event => {
+export const  HandlingCloseFastForm = () => {
     hideFastForm()
     const child = fastForm.children[0]
     setTimeout(() => {

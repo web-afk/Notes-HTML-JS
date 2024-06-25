@@ -9,7 +9,11 @@ export const showFastForm = () => {
     parent.classList.remove("not-visible")
 
     closeFastForm.addEventListener("click", HandlingCloseFastForm)
-    parent.addEventListener("click", HandlingCloseFastForm)
+    parent.addEventListener("click", event => {
+        if(event.target.classList.contains("fast-form-layer")){
+            HandlingCloseFastForm()
+        }
+    })
 }
 
 export const hideFastForm = () => {

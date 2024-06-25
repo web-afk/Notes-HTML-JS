@@ -621,6 +621,10 @@ body{
     background-color: #090673;
 }
 
+#success-message{
+    background-color: #092601;
+}
+
 .close{
     position: absolute;
     right: 10px;

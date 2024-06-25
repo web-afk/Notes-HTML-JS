@@ -1,6 +1,6 @@
-import { notesData, localName } from "./DB/localStorage.js"
-import { getNotes, updateNotes } from "./misc.js"
-import { $, render} from "./dom.js"
+import { localName } from "./DB/localStorage.js"
+import { getNotes } from "./misc.js"
+import { $} from "./dom.js"
 import { setFullNotes } from "./DOM/fullNotes.js"
 import { handlingInputSearchUp, 
         handlingInputSearchDown,

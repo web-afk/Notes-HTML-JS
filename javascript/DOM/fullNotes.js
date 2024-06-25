@@ -1,6 +1,7 @@
 import {$, render} from "../dom.js"
 import { createNote } from "./createNote.js"
 import { messageTittle, messageCount } from "./notesFound.js"
+import { handlingFastNoteForm } from "../events/clickFastNote.js"
 
 export const setFullNotes = (messageTittleText, notes, messageTittleTextEmpty = "No Notes Found: ") => {
 
@@ -21,5 +22,5 @@ export const setFullNotes = (messageTittleText, notes, messageTittleTextEmpty = 
         render(notesContainer, noteElement)
     }
     render(notesContainer, addNote)
-
+    addNote.addEventListener("click", handlingFastNoteForm)
 }
