@@ -13,7 +13,8 @@ export const handleOnSubmitFastForm = event => {
     const author = $("#author").value
     const notes = getNotes(localName)
     const id = getID(notes)
-    const newNote = {id, title, content, author}
+    const color = "purple"
+    const newNote = {id, title, content, author, color}
     notes.push(newNote)
     updateNotes(localName, notes)
     $("#title").value = ""
