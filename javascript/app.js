@@ -1,20 +1,19 @@
 import { localName } from "./DB/localStorage.js"
 import { getNotes } from "./misc.js"
-import { $} from "./dom.js"
+import { $, $$} from "./dom.js"
 import { setFullNotes } from "./DOM/fullNotes.js"
 import { handlingInputSearchUp, 
         handlingInputSearchDown,
         handlingInputSearchChange,
         handlingInputKeyPress} from "./events/inputSearch.js"
 import { handlingFastNoteForm } from "./events/clickFastNote.js"
-
+import { handleAllFullFormArrows } from "./DOM/changeArrowFullForm.js"
 import { handlingSearchClick } from "./events/searchClick.js"
-import { createInfo } from "./DOM/createInfo.js"
 
 const __init__ = () => {
-    //const section_links = $(".section")
     const searchInput = $(".search-btn")
     const fastNote = $(".add-f-btn")
+    const tabFullFormArrows = $$(".summary-label")
 
     const inputSearchNotes = $(".search-input")
     inputSearchNotes.addEventListener("focus", handlingInputSearchUp)
@@ -24,11 +23,9 @@ const __init__ = () => {
     searchInput.addEventListener("click", handlingSearchClick)
     fastNote.addEventListener("click", handlingFastNoteForm)
 
-    //const notes = getNotes(localName)
+
     setFullNotes("Total Notes Found: ", getNotes(localName))
-    createInfo("You are logged as guest")
-    createInfo("You can only filter by id, title, content, author and color")
-    createInfo("More filters will be available soon")
+    handleAllFullFormArrows(tabFullFormArrows)
 }
 
 document.addEventListener("DOMContentLoaded", __init__ )

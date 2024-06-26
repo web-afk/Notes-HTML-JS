@@ -23,7 +23,7 @@ body{
     min-height: 100vh;
     background: var(--background-main-gradient);
     background-size: 200% 200%;
-    animation: gradient 4s ease infinite;
+    animation: gradient 10s ease infinite;
     font-family: var(--default-font);
     color: var(--default-color);
     display: flex;
@@ -81,6 +81,15 @@ body{
     color: #000641;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.nav-section{
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .nav-link{
@@ -104,15 +113,27 @@ body{
 
 .dashboard{
     width: calc(100% - 40px);
-    background-color: #221e3e;
+    background: linear-gradient(#221e3e, #1e193b, #1a1343, #150d41);
+    background-size: 200% 200%;
     border-radius: 10px;
     padding-top: 20px;
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     flex-wrap: wrap;
+    animation-name: gradient;
+    animation-duration : 10px;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+
+.show-block{
+    display: flex;
+}
+
+.hide-block{
+    display: none;
 }
 
 .dashboard-buttons{
@@ -156,7 +177,6 @@ body{
 }
 
 .input-list{
-    max-width: 500px;
     width: 500px;
     max-height: 200px;
     position: absolute;
@@ -667,12 +687,14 @@ body{
 .fast-form-layer{
     min-width: 100vw;
     min-height: 100vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 90px 30px 50px 30px;
+    overflow-y: scroll;
 }
 
 .fast-form-container{
@@ -814,6 +836,259 @@ body{
     visibility: hidden;
 }
 
+.slide-from-right{
+    animation-name: slideFromRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+.slide-to-right{
+    animation-name: slideToRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.dashboard-full-form{
+    padding: 20px;
+}
+
+.dashboard-full-form-container{
+    background-color: #40143D;
+    border: solid 1px #ffc3fb;
+    color: #ffc3fb;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.full-form-header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.full-form-title{
+    font-size: 1.9rem;
+    font-weight: bolder;
+    color: #ffe8fd;
+    transition: all 0.5s;
+    user-select: none;
+}
+
+.full-form-title:hover{
+    color: #fff;
+    text-decoration: underline 3px;
+    cursor: pointer;
+}
+
+.full-form-desc{
+    transition: all 0.5s;
+}
+
+.full-form-desc:hover{
+    color:#ffe8fd ;
+}
+
+/*form*/
+
+.tab-full-form,
+.tab-full-form-body{
+    transition: all 0.5s;
+}
+
+.tab-full-form-body{
+    padding: 30px 10px 10px 10px;
+    border-radius: 0 0 4px 4px;
+}
+
+.full-form-body{
+    width: 100%;
+    background-color: #3B0273;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    transition: all 0.5s;
+}
+
+.full-form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.tab-full-form-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.change{
+    font-size: 2rem;
+    transition: all 0.5s;
+}
+
+.rotate-down{
+    transform: rotate(180deg);
+}
+
+.rotate-up{
+    transform: rotate(0deg);
+}
+
+.summary-label{
+    list-style: none;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    border-radius: 3px 3px 0 0;
+    max-height: 65px;
+    min-height: 65px;
+    height: 65px;
+}
+
+.summary-label::after{
+    content: '';
+    display: block;
+    width: calc(100% - 20px);
+    height: 5px;
+    background: #ffc3fb;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    transition: all 0.5s;
+}
+
+.summary-label:hover,
+.summary-label:active,
+.summary-label:focus{
+    color: #fff;
+    background-color: #4c0198;
+}
+
+.summary-label:hover + .tab-full-form-body,
+.summary-label:active + .tab-full-form-body,
+.summary-label:focus + .tab-full-form-body,
+.tab-full-form-body:hover,
+.tab-full-form-body:active,
+.tab-full-form-body:focus,
+.tab-full-form[open] .tab-full-form-body,
+.tab-full-form[open] .summary-label{
+    background-color: #4c0198;
+}
+
+
+.summary-label:active,
+.summary-label:active::after{
+    transform: scale(1.01);
+}
+
+.summary-label:focus{
+    outline: solid 1px #4c0196;
+}
+
+.summary-label:hover::after,
+.summary-label:active::after,
+.summary-label:focus::after
+{
+    background-color: #fff;
+}
+
+.section-name{
+    display: flex;
+    column-gap: 10px;
+}
+
+.option-information-body{
+    display: flex;
+    gap: 20px 10px;
+    flex-wrap: wrap;
+}
+
+.btn-full-form{
+    min-width: 300px;
+}
+
+.btn-submit-full-form{
+    background-color: #0A2621;
+    color: #d1fff7;
+    transition: all 0.5s;
+}
+
+.btn-submit-full-form:hover,
+.btn-submit-full-form:focus,
+.btn-submit-full-form:active{
+    background-color: #00120f;
+    color: #fff;
+}
+
+.btn-reset-full-form{
+    background-color: #1A0E3E;
+    color: #cdbcff;
+    transition: all 0.5s;
+}
+
+.btn-reset-full-form:hover,
+.btn-reset-full-form:focus,
+.btn-reset-full-form:active{
+    background-color: #0b002c;
+    color: #fff;
+}
+
+.btn-full-form-cancel{
+    background-color: #EB052E;
+    color: #680013;
+    transition: all 0.5s;
+}
+
+.btn-full-form-cancel:hover,
+.btn-full-form-cancel:focus,
+.btn-full-form-cancel:active{
+    background-color: #ff001e;
+    color: #000;
+}
+
+/*form*/
+
+.full-form-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes slideFromRight{
+    0%{
+        transform: translateX(500%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideToRight{
+    0%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(500%);
+        opacity: 0;
+    }
+}
+
 @keyframes removeOpacity{
     0%{
         background-color: rgba(0,0,0,0.5);
@@ -904,6 +1179,6 @@ body{
     }
 
     .textarea-input{
-        height: 60px;
+        height: 70px;
     }
 }

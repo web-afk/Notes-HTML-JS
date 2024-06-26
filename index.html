@@ -16,14 +16,24 @@
         <span class="slogan">Create and manage your notes in an easier way.</span>
     </header>
     <section class="navigation">
-        <a href="#" class="nav-link" tittle="Home Page">Notes App</a>
-        <span> > </span>
-        <a href="index.html" class="nav-link" title="Notes Dashboard Page">Notes DashBoard</a>
+        <article class="nav-section">
+            <a href="#" class="nav-link" tittle="Home Page" id="home">Notes App</a>
+        </article>
+        <article class="nav-section">
+            <span> > </span>
+            <a href="index.html" class="nav-link" title="Notes Dashboard Page" id="dashboard-notes">Notes DashBoard</a>
+        </article>
+        <article class="nav-section slide-from-right">
+            <span> > </span>
+            <a href="#" class="nav-link" title="Add Full Note Form Page" id="full-note-form">Add Full Note Form</a>
+        </article>
+        <!--
+        -->
     </section>
 
     <section class="header-blank"></section>
 
-    <article class="dashboard">
+    <article class="dashboard dashboard-full-notes hide-block">
         <section class="actions">
             <input type="text" placeholder="Custom Search On" class="search-input" spellcheck="false" id="CustomSearch">
 
@@ -44,6 +54,69 @@
                 </section>
             </article>
         </section>
+    </article>
+
+    <article class="dashboard dashboard-full-form show-block">
+
+        <main class="dashboard-full-form-container">
+            <header class="full-form-header">
+                <p class="full-form-title">Full Notes Form</p>
+                <span class="full-form-desc">Manage more interactions with your notes, increase the personalization on your notes</span>
+            </header>
+    
+            <section class="full-form-body">
+                <form action="javascript/app.js" class="full-form" id="full-form" for="full-form">
+    
+                    <details class="basic-information tab-full-form" open>
+                        <summary class="summary-label">
+                            <header class="basic-information-header tab-full-form-header">
+                                <p class="section-name">Basic Note Information   <i class="fa-solid fa-file"></i></p>
+                                <i class="fa-solid fa-caret-up change rotate-down"></i>
+                            </header>
+                        </summary>
+                        <section class="basic-information-body tab-full-form-body">
+                            <label for="title" class="full-form-label">
+                                <p class="full-form-label-info">Title</p>
+                                <input type="text" minlength="1" name="title" id="note-title" placeholder="Add a title to your note" required>
+                            </label>
+
+                            <label for="content" class="full-form-label">
+                                <p class="full-form-label-info">Content</p>
+                                <textarea name="content" id="note-content" minlength="1" cols="30" rows="10" placeholder="Add a content to your note" required></textarea>
+                            </label>
+
+                            <label for="author" class="full-form-label">
+                                <p class="full-form-label-info">Author</p>
+                                <input type="email" name="author" id="note-author" placeholder="Add an author to your note" value="app-note@guest.com" required>
+                            </label>
+                        </section>
+                    </details>
+                    
+                    
+                    
+                    <details class="options-information tab-full-form" open>
+                        <summary class="summary-label">
+                            <header class="options-information-header tab-full-form-header">
+                                <p class="section-name">Full Form Note Options   <i class="fa-solid fa-gears"></i></p>
+                                <i class="fa-solid fa-caret-up change rotate-down"></i>
+                            </header>
+                        </summary>
+                        <section class="option-information-body tab-full-form-body">
+                            <button title="Submit and Save the info" type="submit" name="full-form" class="btn btn-submit-full-form btn-full-form">Submit</button>
+                            <button title="Reset the current note" type="reset" class="btn btn-reset-full-form btn-full-form">Reset</button>
+                            <button title="Cancel the current note and get back to the note dashboard" type="button" class="btn btn-full-form-cancel btn-full-form">Cancel <i class="fa-solid fa-xmark"></i></button>
+                        </section>
+                    </details>
+                    
+                </form>
+            </section>
+    
+            <footer class="full-form-footer">
+                <span class="full-form-footer-text">Created by enrique2016flores@gmail.com</span>
+            </footer>
+        </main>
+
+
     </article>
 
     <article class="message-stack">
