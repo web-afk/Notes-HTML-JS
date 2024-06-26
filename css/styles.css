@@ -1010,6 +1010,54 @@ body{
     column-gap: 10px;
 }
 
+.basic-information-body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.full-form-label-basic{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.full-form-label-basic:hover .full-form-label-info-basic{
+    color: #fff;
+}
+
+.full-form-label-info-basic{
+    font-size: 1.6rem;
+    font-weight: bolder;
+    transition: all 0.5s;
+}
+
+.full-form-input-basic{
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid #f1e2ff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    color: #ead5ff;
+    transition: all 0.5s;
+}
+
+.full-form-input-basic:active,
+.full-form-input-basic:focus{
+    outline: none;
+    border-bottom: 2px solid #fff;
+}
+
+.full-form-input-basic:hover::placeholder{
+    color: #d4a9ff;
+    transition: all 0.5s;
+}
+
+.full-form-input-basic::placeholder{
+    color: #be7dff;
+}
+
 .option-information-body{
     display: flex;
     gap: 20px 10px;
