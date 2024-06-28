@@ -872,6 +872,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .full-form-title{
@@ -880,6 +881,7 @@ body{
     color: #ffe8fd;
     transition: all 0.5s;
     user-select: none;
+    flex-grow: 5;
 }
 
 .full-form-title:hover{
@@ -1073,6 +1075,18 @@ body{
     color: #d1fff7;
     transition: all 0.5s;
 }
+/*
+.summary-label:hover + .tab-full-form-body,
+.summary-label:active + .tab-full-form-body,
+.summary-label:focus + .tab-full-form-body,
+.tab-full-form-body:hover,
+.tab-full-form-body:active,
+.tab-full-form-body:focus,
+*/
+.second-order[open] .tab-full-form-body,
+.second-order[open] .summary-label{
+    background-color: #861f8a;
+}
 
 .btn-submit-full-form:hover,
 .btn-submit-full-form:focus,
@@ -1206,10 +1220,46 @@ body{
     }
 }
 
+@media screen and (max-width: 696px){
+    .full-form-header{
+        padding-bottom: 80px;
+    }
+}
+
 @media screen and (max-width: 636px){
     .notes{
         margin-top: 100px;
     } 
+
+    .btn-full-form{
+        min-width: 100%;
+    }
+
+    .full-form-header{
+        padding-bottom: 110px;
+        row-gap: 10px;
+    }
+
+    .full-form-footer-text{
+        text-align: center;
+    }
+
+    .tab-full-form-header{
+        column-gap: 5px;
+    }
+
+    .summary-label::after{
+        bottom: 10px;
+    }
+
+    .summary-label{
+        align-items: center;
+        min-height: 90px;
+    }
+
+    .section-name{
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 516px){
@@ -1229,4 +1279,15 @@ body{
     .textarea-input{
         height: 70px;
     }
+}
+
+@media screen and (max-width: 344px){
+
+    .nav-link{
+        font-size: 0.8rem;
+    }
+
+    .section-name{
+        font-size: 1rem;
+    }    
 }
