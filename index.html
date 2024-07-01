@@ -57,6 +57,11 @@
     </article>
 
     <article class="dashboard dashboard-full-form show-block">
+        <section class="back-card">
+            <a href="#">
+                <p class="text-back">Go Back to Card Dashboard</p>
+            </a>
+        </section>
 
         <main class="dashboard-full-form-container">
             <header class="full-form-header">
@@ -67,7 +72,7 @@
             <section class="full-form-body">
                 <form action="javascript/app.js" class="full-form" id="full-form" for="full-form">
     
-                    <details class="basic-information tab-full-form" open>
+                    <details class="basic-information tab-full-form" >
                         <summary class="summary-label">
                             <header class="basic-information-header tab-full-form-header">
                                 <p class="section-name">Basic Note Information   <i class="fa-solid fa-file icon-title"></i></p>
@@ -77,17 +82,17 @@
                         <section class="basic-information-body tab-full-form-body">
                             <label for="title" class="full-form-label-basic">
                                 <p class="full-form-label-info-basic">Title</p>
-                                <input class="full-form-input-basic" type="text" minlength="1" name="title" id="note-title" placeholder="Add a title to your note" required>
+                                <input class="full-form-input-basic full-form-input-title" type="text" minlength="1" name="title" id="note-title" placeholder="Add a title to your note" required>
                             </label>
                             
                             <label for="content" class="full-form-label-basic">
                                 <p class="full-form-label-info-basic">Content</p>
-                                <textarea class="full-form-input-basic textarea-basic" name="content" id="note-content" minlength="1" cols="10" rows="5" placeholder="Add a content to your note" required></textarea>
+                                <textarea class="full-form-input-basic textarea-basic full-form-input-content" name="content" id="note-content" minlength="1" cols="10" rows="5" placeholder="Add a content to your note" required></textarea>
                             </label>
                             
                             <label for="author" class="full-form-label-basic">
                                 <p class="full-form-label-info-basic">Author</p>
-                                <input class="full-form-input-basic" type="email" name="author" id="note-author" placeholder="Add an author to your note" value="app-note@guest.com" required>
+                                <input class="full-form-input-basic full-form-input-author" type="email" name="author" id="note-author" placeholder="Add an author to your note" value="app-note@guest.com" required>
                             </label>
                         </section>
                     </details>
@@ -100,109 +105,48 @@
                                 <i class="fa-solid fa-caret-up change rotate-down"></i>
                             </header>
                         </summary>
-                        <section class="personal-information-body tab-full-form-body">
+                        <section class="colors-information-body tab-full-form-body">
 
-                            <details class="personal-information tab-full-form second-order" open>
+                            <details class="colors-information tab-full-form second-order" open>
                                 <summary class="summary-label second-order">
-                                    <header class="personal-information-header tab-full-form-header">
+                                    <header class="colors-information-header tab-full-form-header">
                                         <p class="section-name">Choose Color <i class="fa-solid fa-paintbrush"></i></p>
                                         <i class="fa-solid fa-caret-up change rotate-down"></i>
                                     </header>
                                 </summary>
-                                <section class="personal-information-body tab-full-form-body second-order">
-                                    <label for="colors">
-                                        <p class="full-form-label-info-basic">Choose a color</p>
-                                        <section class="color">
-                                            <label for="red color">
-                                                <p class="color-name">Red</p>
-                                                <input class="color-input" type="radio" name="colors" id="red color" value="red">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box red"></div>
-                                            </article>
-                                        </section>
-                                        <section class="color">
-                                            <label for="green color">
-                                                <p class="color-name">Green</p>
-                                                <input class="color-input" type="radio" name="colors" id="green color" value="green">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box green"></div>
-                                            </article>
-                                        </section>
-                                        
-                                        <section class="color">
-                                            <label for="purple color">
-                                                <p class="color-name">Purple</p>
-                                                <input class="color-input" type="radio" name="colors" id="purple color" value="purple">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box purple"></div>
-                                            </article>
-                                        </section>
-
-                                        <section class="color">
-                                            <label for="yellow color">
-                                                <p class="color-name">Yellow</p>
-                                                <input class="color-input" type="radio" name="colors" id="yellow color" value="yellow">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box yellow"></div>
-                                            </article>
-                                        </section>
-
-                                        <section class="color">
-                                            <label for="blue color">
-                                                <p class="color-name">blue</p>
-                                                <input class="color-input" type="radio" name="colors" id="blue color" value="blue">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box blue"></div>
-                                            </article>
-                                        </section>
-
-                                        <section class="color">
-                                            <label for="pink color">
-                                                <p class="color-name">pink</p>
-                                                <input class="color-input" type="radio" name="colors" id="pink color" value="pink">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box pink"></div>
-                                            </article>
-                                        </section>
-
-                                        <section class="color">
-                                            <label for="orange color">
-                                                <p class="color-name">orange</p>
-                                                <input class="color-input" type="radio" name="colors" id="orange color" value="orange">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box orange"></div>
-                                            </article>
-                                        </section>
+                                <section class="colors-information-body tab-full-form-body second-order">
+                                    <label for="colors" class="color-label">
 
                                         
-                                        <section class="color">
-                                            <label for="random color">
-                                                <p class="color-name">random</p>
-                                                <input class="color-input" type="radio" name="colors" id="random color" value="random">
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box random"></div>
-                                            </article>
-                                        </section>
-                                        
-                                        <section class="color">
-                                            <label for="default color">
-                                                <p class="color-name">default</p>
-                                                <input class="color-input" type="radio" name="colors" id="default color" value="default" checked>
-                                            </label>
-                                            <article class="color-full">
-                                                <div class="color-box default"></div>
-                                            </article>
-                                        </section>
 
                                     </label>
+                                </section>
+                            </details>
+
+                            <details class="preview-information tab-full-form second-order" open>
+                                <summary class="summary-label second-order">
+                                    <header class="preview-information-header tab-full-form-header">
+                                        <p class="section-name">Card Preview <i class="fa-solid fa-magnifying-glass"></i></p>
+                                        <i class="fa-solid fa-caret-up change rotate-down"></i>
+                                    </header>
+                                </summary>
+                                <section class="preview-information-body tab-full-form-body second-order">
+                                 
+                                    <section class="note note-red card-preview-full-form" id="0">
+                                        <header class="note-header note-header-red">
+                                            <p class="note-title">"Title"</p>
+                                        </header>
+                                        <section class="note-body">
+                                            <p class="note-content">"Content"</p>
+                                            <button class="note-options">Full Note Information &#9733;
+                                            </button>
+                                        </section>
+                                        <footer class="note-footer">
+                                            <span class="note-author">Author: enrique2016flores@gmail.com
+                                            </span>
+                                        </footer>
+                                    </section>
+                                    
                                 </section>
                             </details>
 
@@ -210,7 +154,7 @@
                         </section>
                     </details>
                     
-                    <details class="options-information tab-full-form" open>
+                    <details class="options-information tab-full-form" >
                         <summary class="summary-label">
                             <header class="options-information-header tab-full-form-header">
                                 <p class="section-name">Full Form Note Options   <i class="fa-solid fa-gears icon-title"></i></p>
